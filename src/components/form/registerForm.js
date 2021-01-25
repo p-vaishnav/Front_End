@@ -75,7 +75,7 @@ export default class RegisterForm extends React.Component {
 
         if (furtherProcess) {
             document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
-            this.props.axios.post(process.env.BACKEND_URI + '/api/employees/register', this.state.allValues)
+            this.props.axios.post(window.BACKEND_URI + '/api/employees/register', this.state.allValues)
                 .then(resp => {
                     if (resp.data.warning) {
                         this.props.showPopUp(resp.data.warning.message, true);

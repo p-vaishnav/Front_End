@@ -140,7 +140,7 @@ export default class MainSection extends React.Component {
     loadOrders() {
             document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
             let cmh = new CookieHandler();
-            axios.post(process.env.BACKEND_URI + 'api/orders/list',{empId: cmh.getValueOfSpecificCookie('empId')},
+            axios.post(window.BACKEND_URI + 'api/orders/list',{empId: cmh.getValueOfSpecificCookie('empId')},
             {
                 headers: {
                         Authorization: "Bearer " + cmh.getValueOfSpecificCookie('bearerToken')
@@ -215,7 +215,7 @@ export default class MainSection extends React.Component {
         };
         document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
 
-        axios.post(process.env.BACKEND_URI + 'api/orders/place',{
+        axios.post(window.BACKEND_URI + 'api/orders/place',{
             orderedItems: this.state.wishList,
             name: cm.getValueOfSpecificCookie('name'),
             mobNo: cm.getValueOfSpecificCookie('mobile'),
@@ -298,7 +298,7 @@ export default class MainSection extends React.Component {
         });
         document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
 
-        axios.post(process.env.BACKEND_URI + '/api/employees/identity',
+        axios.post(window.BACKEND_URI + '/api/employees/identity',
         {
             empId: empData['empId']
         },
