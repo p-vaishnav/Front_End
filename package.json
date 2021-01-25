@@ -38,6 +38,13 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"https://svp-back-end-final.herokuapp.com/"
+  "proxy": {
+    "/api": {
+      "target": "https://svp-back-end-final.herokuapp.com/",
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    }
+  }
   
 }
