@@ -1,5 +1,6 @@
 import React from 'react';
 import PageLabel from '../label/label';
+import URI from '../../datahandling/backend-uri';
 
 export default class RegisterForm extends React.Component {
     
@@ -75,7 +76,7 @@ export default class RegisterForm extends React.Component {
 
         if (furtherProcess) {
             document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
-            this.props.axios.post(window.BACKEND_URI + '/api/employees/register', this.state.allValues)
+            this.props.axios.post(URI.BACKEND_URI + '/api/employees/register', this.state.allValues)
                 .then(resp => {
                     if (resp.data.warning) {
                         this.props.showPopUp(resp.data.warning.message, true);
