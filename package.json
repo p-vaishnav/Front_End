@@ -37,14 +37,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": {
-    "/api": {
-      "target": "https://svp-back-end-final.herokuapp.com/",
-      "pathRewrite": {
-        "^/api": "/"
-      }
-    }
   }
+ 
   
 }
