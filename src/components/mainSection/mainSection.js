@@ -1,7 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 import axios from 'axios';
-import URI from '../../datahandling/backend-uri';
 
 import Icon from '../icon/icon';
 import LoginImg from '../loginImage/loginImage';
@@ -141,7 +140,7 @@ export default class MainSection extends React.Component {
     loadOrders() {
             document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
             let cmh = new CookieHandler();
-            axios.post(URI.BACKEND_URI + 'api/orders/list',{empId: cmh.getValueOfSpecificCookie('empId')},
+            axios.post('api/orders/list',{empId: cmh.getValueOfSpecificCookie('empId')},
             {
                 headers: {
                         Authorization: "Bearer " + cmh.getValueOfSpecificCookie('bearerToken')
@@ -216,7 +215,7 @@ export default class MainSection extends React.Component {
         };
         document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
 
-        axios.post(URI.BACKEND_URI + 'api/orders/place',{
+        axios.post('api/orders/place',{
             orderedItems: this.state.wishList,
             name: cm.getValueOfSpecificCookie('name'),
             mobNo: cm.getValueOfSpecificCookie('mobile'),
@@ -299,7 +298,7 @@ export default class MainSection extends React.Component {
         });
         document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
 
-        axios.post(URI.BACKEND_URI + '/api/employees/identity',
+        axios.post('/api/employees/identity',
         {
             empId: empData['empId']
         },

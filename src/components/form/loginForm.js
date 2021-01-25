@@ -1,8 +1,6 @@
 import React from 'react';
 import PageLabel from '../label/label';
 import CookieHandler from '../../datahandling/cookieStoreManager';
-import URI from '../../datahandling/backend-uri';
-
 
 export default class LoginForm extends React.Component {
 
@@ -43,7 +41,7 @@ export default class LoginForm extends React.Component {
 
         if (furtherProcess) {
             document.getElementsByClassName('lds-facebook')[0].style.visibility = 'visible';
-            this.props.axios.post(URI.BACKEND_URI + '/api/employees/login', this.state.loginCreds)
+            this.props.axios.post('/api/employees/login', this.state.loginCreds)
                 .then(resp => {
                     if (resp.data.warning) {
                         this.props.showPopUp(resp.data.warning.message, true);
